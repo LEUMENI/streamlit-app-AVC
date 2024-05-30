@@ -119,7 +119,7 @@ def main():
             prediction = svm_model_best.predict(patient_data)
             probability_avc = svm_model_best.predict_proba(patient_data)[0][1]
 
-            if prediction[0] == 1:
+            if  probability_avc >= 0.5:
                 st.success("Présence d'accident vasculaire cérébral chez ce patient.")
                 st.session_state.avc_patients.append(patient_id)
             else:
